@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Twitter &hearts; Open Source</title>
+    <title>UDF Repository for MySQL</title>
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -21,8 +21,6 @@
 
       // Put custom repo descriptions in this object, keyed by repo name.
       var repoDescriptions = {
-        "bootstrap": "An HTML, CSS, and JS toolkit designed to kickstart development of webapps and sites",
-        "naggati2": "A protocol builder for Netty using Scala 2.8"
       };
 
       function repoDescription(repo) {
@@ -52,10 +50,10 @@
       }
 
       function addRepo(repo) {
-        var $item = $("<li>").addClass("repo grid-1 " + (repo.language || '').toLowerCase());
+        var $item = $("<li>").addClass("repo grid-1");
         var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
-        $link.append($("<h2>").text(repo.name));
-        $link.append($("<h3>").text(repo.language));
+        $link.append($("<h2>").text(repo.name.replace(/^lib_mysqludf_/, '').toUpperCase()));
+        $link.append($("<h3>").text(repo.name));
         $link.append($("<p>").text(repoDescription(repo)));
         $item.appendTo("#repos");
       }
@@ -75,8 +73,6 @@
           }
           else {
             $(function () {
-              $("#num-repos").text(repos.length);
-
               // Convert pushed_at to Date.
               $.each(repos, function (i, repo) {
                 repo.pushed_at = new Date(repo.pushed_at);
@@ -100,9 +96,16 @@
                 return 0;
               });
 
+              var length = 0;
+
               $.each(repos, function (i, repo) {
+                if (!repo.name.match(/^lib_mysqludf_/)) return;
+                
+                length++;
                 addRepo(repo);
               });
+
+              $("#num-repos").text(length);
 
               // Sort by most-recently pushed to.
               repos.sort(function (a, b) {
@@ -131,111 +134,27 @@
       function randomItem(array) {
         return array[Math.floor(Math.random() * array.length)];
       }
-
-      var $flyzone;
-
-      function flyzone() {
-        if (!$flyzone) {
-          $flyzone = $("<div>").attr("id", "flyzone").prependTo(document.body);
-        }
-
-        return $flyzone;
-      }
-
-      var sizes = ["smaller", "small", "medium", "large", "fat"];
-
-      var sizeDimensions = {
-        "smaller": 50,
-        "small": 80,
-        "medium": 130,
-        "large": 200,
-        "fat": 300
-      };
-
-      function randomOpacity(threshold) {
-        var opacity = Math.random();
-
-        while (opacity < threshold) {
-          opacity = Math.random();
-        }
-
-        return opacity;
-      }
-
-      function makeLarry(sizeName, speed) {
-        var size = sizeDimensions[sizeName];
-        var top = Math.floor((flyzone().height() - size) * Math.random());
-
-        var $img = $("<img>")
-          .addClass("larry size-" + sizeName)
-          .attr("src", "assets/larry.png")
-          .attr("width", size)
-          .attr("height", size)
-          .css({
-            position: "absolute",
-            opacity: randomOpacity(0.4),
-            top: top,
-            left: -size
-          });
-
-        $img.prependTo(flyzone());
-
-        var left = flyzone().width() + size;
-
-        $img.animate({left: left}, speed, function () {
-          $img.remove();
-          makeRandomLarry();
-        });
-
-        return $img;
-      }
-
-      function makeRandomLarry() {
-        var size = randomItem(sizes);
-        var speed = Math.floor(Math.random() * 20000) + 15000;
-        return makeLarry(size, speed);
-      }
-
-      $(function () {
-        $("#logo").click(function () {
-          makeRandomLarry();
-        });
-      });
-
-      var match = (/\blarry(=(\d+))?\b/i).exec(window.location.search);
-
-      if (match) {
-        var n = parseInt(match[2]) || 20;
-
-        $(function () {
-          for (var i = 0; i < n; ++i) {
-            setTimeout(makeRandomLarry, Math.random() * n * 500);
-          }
-        });
-      }
-
     })(jQuery);
     </script>
   </head>
   <body>
     <div id="wrapper" class="grid clearfix">
       <div id="main" class="grid-1">
-        <div id="logo"><h1>Twitter Open Source</h1></div>
-        <h1>Twitter is built on open source software.</h1>
-        <p>Want to help? <a href="https://mysqludf.com/jobs">Join the Flock</a></p>
-        <p>Visit <a href="https://dev.mysqludf.com/">dev.mysqludf.com</a></p>
-        <p><a href="https://mysqludf.com/about/resources">Logos and other goodies</a></p>
+        <div id="logo"><img src="assets/logo.png"></div>
+        <h1>UDF Repository for MySQL</h1>
+        <p>User defined functions are a powerful way to extend your MySQL server. UDFs are written in C.</p>
+        <p><a href="#">read more ...</a></p>
       </div>
 
       <div class="grid grid-3">
         <div id="statistics" class="grid-1 alpha header">
           <h1>Statistics</h1>
           <p>
-            <a href="https://github.com/mysqludf/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
+            <a href="https://github.com/mysqludf/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> UDF libraries</a>
             <br>
             <a href="https://github.com/mysqludf"><span id="num-members"><img src="assets/spinner.gif" /></span> members</a>
           </p>
-          <p class="email"><a href="mailto:opensource@mysqludf.com">opensource@mysqludf.com</a></p>
+          <p class="email"><a href="mailto:info@mysqludf.com">info@mysqludf.com</a></p>
         </div>
 
         <div id="recently-updated" class="grid-2 omega header">

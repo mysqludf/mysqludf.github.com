@@ -61,20 +61,14 @@ a:hover {
 }
 
 #main p {
+  text-align: left;
   font-size: 11px;
-  line-height: 2;
+  line-height: 1.6;
+  margin-bottom: 0.4em;
 }
 
 #logo {
-  width: 190px;
-  height: 64px;
-  margin: 15px 0 0 15px;
-  background: url("logo.png");
-  text-indent: -99999px;
-}
-
-#logo h1 {
-  margin: 0;
+  margin: 15px 0 0 0;
 }
 
 div.header {
