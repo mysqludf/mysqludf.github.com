@@ -1,17 +1,18 @@
 html {
-  background: url("bg.png") repeat;
+  background: url("straws.png") repeat;
 }
 
 body {
   font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.4;
-  color: #666;
+  color: #555;
   min-width: 960px;
 }
 
 h1 {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.2em;
   color: #333;
 }
 
@@ -44,27 +45,40 @@ a:hover {
 
 #main, div.header, li.repo {
   background: white;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   -moz-box-shadow:    0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   box-shadow:         0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+li.repo {
+  border-radius: 5px 0 5px 5px;
 }
 
 #main h1 {
-  margin: 30px 0;
+  margin: 15px 0 0 0;
+  font-size: 14px;
 }
 
-#main h1, #main p {
-  margin-left: 15px;
-  margin-right: 15px;
+#main h3 {
+  margin: 20px 0 35px 0;
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+
+#main h1, #main h3, #main p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #main p {
-  text-align: left;
   font-size: 11px;
   line-height: 1.6;
-  margin-bottom: 0.4em;
+  margin-top: 1em;
 }
 
 #logo {
@@ -97,6 +111,17 @@ div.header h1 {
 #statistics p.email {
   margin-top: 6px;
   font-size: 11px;
+}
+
+#statistics p.email:before {
+    content: "\2709";
+    font-size: 18px;
+    margin-right: 5px;
+    line-height: 15px;
+}
+
+#statistics p.email a {
+  vertical-align: top;
 }
 
 #recently-updated h1 a {
@@ -167,6 +192,18 @@ li.repo h3 {
   color: #999;
 }
 
+li.repo .functions {
+  font-style: italic;
+  color: #999;
+}
+
+li.repo .functions ul {
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.6em;
+  margin: 3px 0 0 5px;
+}
+
 .repo:after {
   content: '';
   position: absolute;
@@ -174,73 +211,8 @@ li.repo h3 {
   top: 0;
   width: 0;
   height: 0;
-  border-bottom: 50px solid transparent;
-  border-left: 50px solid transparent;
-  border-right: 50px solid #0080b0;
+  border-bottom: 35px solid transparent;
+  border-left: 35px solid transparent;
+  border-right: 35px solid #FFA33C;
   pointer-events: none;
-}
-
-.repo.javascript:after {
-  border-right-color: #333;
-}
-
-.repo.scala:after {
-  border-right-color: #7ac9de;
-}
-
-.repo.ruby:after {
-  border-right-color: #cc1100;
-}
-
-.repo.java:after {
-  border-right-color: #cc8300;
-}
-
-.repo.python:after {
-  border-right-color: #6aad2d;
-}
-
-@keyframes small-swing { 0% { margin-top: 0px } 50% { margin-top: -10px } 100% { margin-top: 0px } }
-@-moz-keyframes small-swing { 0% { margin-top: 0px } 50% { margin-top: -10px } 100% { margin-top: 0px } }
-@-webkit-keyframes small-swing { 0% { margin-top: 0px } 50% { margin-top: -10px } 100% { margin-top: 0px } }
-@-ms-keyframes small-swing { 0% { margin-top: 0px } 50% { margin-top: -10px } 100% { margin-top: 0px } }
-
-@keyframes medium-swing { 0% { margin-top: 0px } 50% { margin-top: -20px } 100% { margin-top: 0px } }
-@-moz-keyframes medium-swing { 0% { margin-top: 0px } 50% { margin-top: -20px } 100% { margin-top: 0px } }
-@-webkit-keyframes medium-swing { 0% { margin-top: 0px } 50% { margin-top: -20px } 100% { margin-top: 0px } }
-@-ms-keyframes medium-swing { 0% { margin-top: 0px } 50% { margin-top: -20px } 100% { margin-top: 0px } }
-
-@keyframes large-swing { 0% { margin-top: 0px } 50% { margin-top: -40px } 100% { margin-top: 0px } }
-@-moz-keyframes large-swing { 0% { margin-top: 0px } 50% { margin-top: -40px } 100% { margin-top: 0px } }
-@-webkit-keyframes large-swing { 0% { margin-top: 0px } 50% { margin-top: -40px } 100% { margin-top: 0px } }
-@-ms-keyframes large-swing { 0% { margin-top: 0px } 50% { margin-top: -40px } 100% { margin-top: 0px } }
-
-.larry.size-smaller, .larry.size-small {
-  animation: small-swing 0.5s infinite ease-in-out;
-  -moz-animation: small-swing 0.5s infinite ease-in-out;
-  -webkit-animation: small-swing 0.5s infinite ease-in-out;
-  -ms-animation: small-swing 0.5s infinite ease-in-out;
-}
-
-.larry.size-medium, .larry.size-large {
-  animation: medium-swing 1.25s infinite ease-in-out;
-  -moz-animation: medium-swing 1.25s infinite ease-in-out;
-  -webkit-animation: medium-swing 1.25s infinite ease-in-out;
-  -ms-animation: medium-swing 1.25s infinite ease-in-out;
-}
-
-.larry.size-medium, .larry.size-fat {
-  animation: large-swing 1.5s infinite ease-in-out;
-  -moz-animation: large-swing 1.5s infinite ease-in-out;
-  -webkit-animation: large-swing 1.5s infinite ease-in-out;
-  -ms-animation: large-swing 1.5s infinite ease-in-out;
-}
-
-#flyzone {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
