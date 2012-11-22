@@ -1,40 +1,43 @@
-<!DOCTYPE html>
+---
+layout: default
+title: About
+---
+<h1>The UDF Repository for MySQL</h1>
+<p>
+	Welcome to the UDF Repository for MySQL!
+</p>
+<p>
+	The UDF repository for MySQL is a community project that aims to offer an organized collection 
+	of open source <a href="http://dev.mysql.com/doc/refman/5.1/en/adding-functions.html" target="mysql_udf">MySQL user defined functions</a>.			
+</p>	
+<p>
+	MySQL UDFs offer a powerful way to extend the functionality of your MySQL database.
+	The UDFs on this site are all free: free to use, free to distribute, free to modify
+	and free of charge, even for commercial projects.
+</p>
+<h2>Our Mission</h2>
+<p>
+	There are numerous MySQL UDFs available in the public domain. 
+	However, most UDFs appear standalone. 
+	Often, documentation and installation instructions are either scarce or missing.
+	Also, there is little consistency with regard to naming conventions, error handling and error reporting.
+	The MySQL UDF Repository tries to improve that situation.
+        {{ page.title }}
+</p>
 
-<html>
-  <head>
-    <title>UDF Repository for MySQL</title>
-    <link rel="stylesheet" type="text/css" href="assets/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/grid.css">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <script type="text/javascript" src="assets/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="assets/strftime.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    
-    <script type="text/javascript">
-    (function ($, undefined) {
-      addRepos();
-      setMembers();
-    })(jQuery);
-    </script>
-  </head>
-  <body>
-    <div id="wrapper" class="grid clearfix">
-      <div class="grid-1">
-        <div id="main">
-          <div id="logo"><img src="assets/logo.png"></div>
-          <h1>UDF Repository for MySQL</h1>
-          <p>User defined functions are a powerful way to extend your MySQL server. UDFs are written in C.</p>
-          <p><a href="#">read more ...</a></p>
-          <p class="new-section"><a href="#">Propose a new library &raquo;</a></p>
-        </div>
-        <div id="reposmenu">
-          <ul id="repos"></ul>
-        </div>
-      </div>
-
-      <div class="grid grid-3">
-          
-      </div>
-    </div>
-  </body>
-</html>
+<h3>Goals</h3>
+<p>
+	Here's a list of things the UDF Repository for MySQL aims to offer:
+</p>
+<ul>
+	<li>Libraries that contain a coherent collection of UDFs instead of standalone, ad hoc functions.</li>
+	<li>Consistent approach with regard to naming conventions, error handling and error reporting.</li>
+	<li>Online documentation that covers compilation, installation, implementation and examples.</li>
+	<li>Supporting scripts to compile and install and test the libraries.</li>
+	<li>All libraries released using a permissive open source license.</li>
+	<li>Libraries will always be maintained.</li>
+</ul>
+<h2>Disclaimer</h2>
+<p>
+	This project is in no way endorsed by or affiliated with Oracle Corporation, the vendor of the MySQL database.
+</p>

@@ -4,12 +4,14 @@ var repoUrls = {
 
 // Put custom repo descriptions in this object, keyed by repo name.
 var repoDescriptions = {
+  'lib_mysqludf_stem': "MySQL UDF library providing stemming capability for a variety of languages using Dr. M.F. Porter's Snowball API"  
 };
 
 // Highlight functions for a repo.
 var repoFunctions = {
-    'lib_mysqludf_str': ['str_ucfirst(subject)', 'str_ucwords(subject)', 'str_numtowords(num)', 'str_rot13(subject)', 'str_translate(subject, src, dst)', '...'],
-    'lib_mysqludf_preg': ['preg_replace(pattern, repl, subject)', 'preg_capture(pattern, subject, grp)', 'preg_rlike(pattern, subject)', 'preg_position(pattern, subject, grp)', 'preg_check(pattern)']
+  'lib_mysqludf_str': ['str_ucfirst(subject)', 'str_ucwords(subject)', 'str_numtowords(num)', 'str_rot13(subject)', 'str_translate(subject, src, dst)', '...'],
+  'lib_mysqludf_preg': ['preg_replace(pattern, repl, subject)', 'preg_capture(pattern, subject, grp)', 'preg_rlike(pattern, subject)', 'preg_position(pattern, subject, grp)', 'preg_check(pattern)'],
+  'lib_mysqludf_ta': ['Simple Moving Average', 'Exponential Moving Average', 'Relative Strength Index', 'True Range', 'Running Sum/Min/Max', 'Results N periods ago']
 };
 
 function repoUrl(repo) {
@@ -49,7 +51,9 @@ function addRecentlyUpdatedRepo(repo) {
 function addRepo(repo) {
   var $item = $("<li>");
   var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
-  $link.text(repo.name.replace(/^lib_mysqludf_/, '').toUpperCase());
+  $link.append($('<span>').text(repo.name.replace(/^lib_mysqludf_/, '').toUpperCase()));
+  $link.append(' ');
+  $link.append($('<small>').text(repo.description));
   $item.appendTo("#repos");
 }
 

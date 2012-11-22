@@ -6,20 +6,31 @@ body {
   font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.4;
   color: #555;
-  min-width: 960px;
 }
 
 h1 {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 32px;
   line-height: 1.2em;
-  color: #333;
+  color: #000;
 }
 
 h2 {
   font-weight: bold;
   font-size: 20px;
-  color: #0084b4;
+  color: #000;
+  border-bottom: 1px solid #CCC;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+}
+
+h4 {
+  font-weight: bold;
+  color: #000;
 }
 
 a:link, a:visited {
@@ -31,6 +42,63 @@ a:hover {
   text-decoration: underline;
 }
 
+small {
+  font-size: 0.85em;
+}
+
+
+.grid-1, .grid-2, .grid-3, .grid-4 {
+  display:inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last) */
+
+.alpha {
+  margin-left: 0;
+}
+
+.omega {
+  margin-right: 0;
+}
+
+/* Grid >> 4 Columns */
+
+.grid .grid-1 {
+  width: 220px;
+}
+
+.grid .grid-2 {
+  width: 460px;
+}
+
+.grid .grid-3 {
+  width: 700px;
+}
+
+.grid .grid-4 {
+  width: 940px;
+}
+
+/* http://nicolasgallagher.com/micro-clearfix-hack/ */
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
 #wrapper {
   position: relative;
   width: 960px;
@@ -39,11 +107,12 @@ a:hover {
 }
 
 #main {
-  height: 400px;
+  height: 380px;
   text-align: center;
+  padding-top: 20px;
 }
 
-#main, div.header, li.repo {
+div.box, div.header, li.repo {
   background: white;
   background: rgba(255, 255, 255, 0.8);
   -moz-box-shadow:    0px 0px 5px 1px rgba(0, 0, 0, 0.1);
@@ -57,8 +126,16 @@ li.repo {
   border-radius: 5px 0 5px 5px;
 }
 
+div.header h1, li.repo h1, #reposmenu h1 {
+  font-size: 18px;
+}
+
+div.header h2, li.repo h2 {
+  color: #0084b4;
+}
+
 #main h1 {
-  margin: 15px 0 0 0;
+  margin: 0;
   font-size: 14px;
 }
 
@@ -93,8 +170,30 @@ div.header h1, div.header p {
   margin: 10px 15px 0;
 }
 
-div.header h1 {
+div.header h1, #reposmenu h1 {
   margin-bottom: 10px;
+}
+
+#reposmenu {
+  padding: 15px;
+}
+
+#reposmenu #repos li {
+  padding-bottom: 5px;
+}
+
+#reposmenu #repos a:hover {
+  text-decoration: none;
+}
+
+#reposmenu #repos a:hover span {
+  text-decoration: underline;
+}
+
+#reposmenu #repos small {
+  display: block;
+  color: #555;
+  padding-left: 10px;
 }
 
 #num-repos, #num-members {
@@ -215,4 +314,48 @@ li.repo .functions ul {
   border-left: 35px solid transparent;
   border-right: 35px solid #FFA33C;
   pointer-events: none;
+}
+
+#content {
+  padding: 15px;
+}
+
+#content p, #content > ul, #content > ol, #content > dl {
+  margin-bottom: 1em;
+}
+
+#content h1, #content h2 {
+  margin-bottom: 5px;
+}
+
+#content ul {
+  list-style: disc inside;
+  margin-left: 10px;
+}
+
+#content dd {
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 920px) {
+  h1 {
+    font-size: 24px;
+  }
+  
+  #wrapper {
+    width: auto;
+  }
+  
+  .grid .grid-1, .grid .grid-2, .grid .grid-3, .grid .grid-4 {
+    display: block;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+  
+  li.repo {
+     height: auto;
+  }
 }
