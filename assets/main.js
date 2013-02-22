@@ -29,7 +29,7 @@ function repoFunction(repo) {
 function addRecentlyUpdatedRepo(repo) {
   var $item = $("<li>");
 
-  var $name = $("<a>").attr("href", repo.html_url).text(repo.name);
+  var $name = $("<a>").attr("href", repo.html_url + '#readme').text(repo.name);
   $item.append($("<span>").addClass("name").append($name));
 
   var $time = $("<a>").attr("href", repo.html_url + "/commits").text(strftime("%h %e, %Y", repo.pushed_at));
