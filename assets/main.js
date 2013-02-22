@@ -29,7 +29,7 @@ function repoFunction(repo) {
 function addRecentlyUpdatedRepo(repo) {
   var $item = $("<li>");
 
-  var $name = $("<a>").attr("href", repo.html_url + '#readme').text(repo.name);
+  var $name = $("<a>").attr("href", repo.html_url).text(repo.name);
   $item.append($("<span>").addClass("name").append($name));
 
   var $time = $("<a>").attr("href", repo.html_url + "/commits").text(strftime("%h %e, %Y", repo.pushed_at));
@@ -50,7 +50,7 @@ function addRecentlyUpdatedRepo(repo) {
 
 function addRepo(repo) {
   var $item = $("<li>");
-  var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
+  var $link = $("<a>").attr("href", repoUrl(repo) + '#readme').appendTo($item);
   $link.append($('<span>').text(repo.name.replace(/^lib_mysqludf_/, '').toUpperCase()));
   $link.append(' ');
   $link.append($('<small>').text(repo.description));

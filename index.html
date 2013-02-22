@@ -30,7 +30,7 @@ layout: base
 $(function() {
   addRepos(function(repo) {
     var $item = $("<li>").addClass("repo grid-1");
-    var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
+    var $link = $("<a>").attr("href", repoUrl(repo) + '#readme').appendTo($item);
     $link.append($("<h2>").text(repo.name.replace(/^lib_mysqludf_/, '').toUpperCase()));
     $link.append($("<h3>").text(repo.name));
     $link.append($("<p>").text(repoDescription(repo)));
