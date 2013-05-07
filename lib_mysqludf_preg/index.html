@@ -1,0 +1,18 @@
+---
+layout: redirect
+title: lib_mysqludf_preg
+link: https://github.com/mysqludf/lib_mysqludf_preg#readme
+---
+<p>lib_mysqludf_preg is a library of mysql UDFs (user-defined-functions) that provide access to the PCRE (perl compatible-regular-expressions) library for pattern matching. The PCRE library is a set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5. This syntax can often handle more complex expressions and capturing than standard regular expression implementations.</p>
+
+<div>
+    lib_mysqludf_preg currently provides the following functions:
+    <dl>
+        <dd>PREG_RLIKE( pattern , subject )</dd><dt>test whether subject matches pattern, which is a perl compatible regular expression.</dt>
+        <dd>PREG_CAPTURE(pattern, subject [, capture-group] [, occurence] )</dd><dt>capture a named or numeric parenthesized subexpression from a pcre pattern. Capture from a specific match of the regex or the first match is occurence not specified.</dt>
+        <dd>PREG_CHECK( pattern )</dd><dt>test whether the given pattern is a valid perl compatible regular expression.</dt>
+        <dd>PREG_POSITION(pattern, subject [, capture-group] [, occurence] )</dd><dt>get the position in subject of a named or numeric parenthesized subexpression from a pcre pattern. Capture from a specific match of the regex or the first match if occurence not specified.</dt>
+        <dd>PREG_REPLACE(pattern, replacement, subject [ ,limit ] )</dd><dt>perform a regular expression search and replace using a PCRE pattern.</dt>
+        <dd>LIB_MYSQLUDF_PREG_INFO()</dd><dt>obtain information about the currently installed version of lib_mysqludf_preg.</dt>
+    </dl>
+</div>
